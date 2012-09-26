@@ -13,10 +13,6 @@ public class CashBack implements IDiscount {
 		return 5;
 	}
 
-	@Override
-	public String getName() {
-
-		return "CASHBACK";
-	}
+	
 
 }

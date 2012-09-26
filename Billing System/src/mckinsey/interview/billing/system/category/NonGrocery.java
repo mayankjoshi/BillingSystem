@@ -2,15 +2,17 @@ package mckinsey.interview.billing.system.category;
 
 public class NonGrocery implements ICategory {
 
+	private String nongroceryName = "NONGROCERY";
+
 	@Override
 	public String getCategoryName() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return nongroceryName;
 	}
 
 	@Override
-	public void setCategoryName(String categpryName) {
-		// TODO Auto-generated method stub
+	public void setCategoryName(String categoryName) {
+		this.nongroceryName = categoryName;
 
 	}
 

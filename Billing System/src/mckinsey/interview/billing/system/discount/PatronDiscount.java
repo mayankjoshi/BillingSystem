@@ -14,10 +14,6 @@ public class PatronDiscount implements IDiscount {
 		return 5;
 	}
 
-	@Override
-	public String getName() {
-
-		return "PATRON";
-	}
+	
 
 }

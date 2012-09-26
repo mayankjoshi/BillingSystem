@@ -6,6 +6,7 @@ public class LineItem {
 	private ICategory itemCategory;
 	private int rate;
 	private int quantity;
+	private String sku="default";
 	public ICategory getItemCategory() {
 		return itemCategory;
 	}
@@ -20,6 +21,12 @@ public class LineItem {
 	}
 	public int getQuantity() {
 		return quantity;
+	}
+	public String getSku() {
+		return sku;
+	}
+	public void setSku(String sku) {
+		this.sku = sku;
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;

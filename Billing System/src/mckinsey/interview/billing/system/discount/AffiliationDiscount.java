@@ -14,10 +14,6 @@ public class AffiliationDiscount implements IDiscount {
 		return 10;
 	}
 
-	@Override
-	public String getName() {
-
-		return "AFFILIATION";
-	}
+	
 
 }

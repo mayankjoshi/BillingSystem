@@ -14,10 +14,6 @@ public class EmployeeDiscount implements IDiscount {
 		return 30;
 	}
 
-	@Override
-	public String getName() {
-
-		return "EMPLOYEE";
-	}
+	
 
 }

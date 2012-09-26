@@ -21,8 +21,8 @@ public final class DiscountCalculator {
 		return calculator;
 	}
 
-	public int getTotalDiscount(final Bill bill) {
-		int discount = 0;
+	public int getNetAmount(final Bill bill) {
+
 		// Get Gross Amount
 		int grossAmount = bill.getGrossAmount();
 		// Get Grocery Amount as we will not apply discount on Groceries.
@@ -41,7 +41,8 @@ public final class DiscountCalculator {
 		int cashBackAmount = (amountAfterApplyingDiscount / 100)
 				* cashBackDiscount;
 		int netPayable = (amountAfterApplyingDiscount - cashBackAmount);
-		return discount;
+		bill.setNetAmount(netPayable);
+		return netPayable;
 	}
 
 	public int getCashBackDiscount(final Bill bill) {
@@ -49,7 +50,7 @@ public final class DiscountCalculator {
 		List<IDiscount> discounts = bill.getDiscounts();
 		for (Iterator<IDiscount> iterator = discounts.iterator(); iterator
 				.hasNext();) {
-			IDiscount iDiscount = (IDiscount) iterator.next();
+			IDiscount iDiscount = iterator.next();
 			if (iDiscount.getType().equals(IDiscount.CASHBACK)) {
 				return iDiscount.getAmount();
 			}
@@ -75,7 +76,7 @@ public final class DiscountCalculator {
 		int currentDiscount = 0;
 		for (Iterator<IDiscount> iterator = discounts.iterator(); iterator
 				.hasNext();) {
-			IDiscount iDiscount = (IDiscount) iterator.next();
+			IDiscount iDiscount = iterator.next();
 			if (iDiscount.getType().equals(IDiscount.PERCENTAGE)) {
 				int amount = iDiscount.getAmount();
 				if (amount > currentDiscount) {
@@ -92,7 +93,7 @@ public final class DiscountCalculator {
 		int groceryAmount = 0;
 		for (Iterator<LineItem> iterator = lineItemList.iterator(); iterator
 				.hasNext();) {
-			LineItem lineItem = (LineItem) iterator.next();
+			LineItem lineItem = iterator.next();
 			ICategory itemCategory = lineItem.getItemCategory();
 			if (itemCategory instanceof Grocery) {
 				groceryAmount += (lineItem.getRate() * lineItem.getQuantity());
