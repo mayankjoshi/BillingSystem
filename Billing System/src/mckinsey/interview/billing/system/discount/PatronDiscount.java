@@ -4,14 +4,20 @@ public class PatronDiscount implements IDiscount {
 
 	@Override
 	public String getType() {
-		
-		return "PATRON";
+
+		return PERCENTAGE;
 	}
 
 	@Override
-	public int getPercentage() {
-		
+	public int getAmount() {
+
 		return 5;
+	}
+
+	@Override
+	public String getName() {
+
+		return "PATRON";
 	}
 
 }

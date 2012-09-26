@@ -4,14 +4,20 @@ public class AffiliationDiscount implements IDiscount {
 
 	@Override
 	public String getType() {
-		
-		return "AFFILIATION";
+
+		return PERCENTAGE;
 	}
 
 	@Override
-	public int getPercentage() {
-		
+	public int getAmount() {
+
 		return 10;
+	}
+
+	@Override
+	public String getName() {
+
+		return "AFFILIATION";
 	}
 
 }

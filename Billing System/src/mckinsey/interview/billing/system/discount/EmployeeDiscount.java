@@ -5,13 +5,19 @@ public class EmployeeDiscount implements IDiscount {
 	@Override
 	public String getType() {
 
-		return "EMPLOYEE";
+		return PERCENTAGE;
 	}
 
 	@Override
-	public int getPercentage() {
+	public int getAmount() {
 
 		return 30;
+	}
+
+	@Override
+	public String getName() {
+
+		return "EMPLOYEE";
 	}
 
 }
