@@ -1049,7 +1049,8 @@ public class Positive {
 
 	@Test
 	public void testEmployeeDiscount_And_CashBack_LessThan100_WithBoth() {
-		Bill groceryOnlyBill = TestUtil.createBothGroceryAndNonGroceryBilllessThan100();
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBilllessThan100();
 		List<IDiscount> discounts = new ArrayList<IDiscount>();
 
 		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
@@ -1171,6 +1172,100 @@ public class Positive {
 
 	@Test
 	public void testThreeCashBack_LessThan100_Discount_WithBoth() {
+		fail("Not yet implemented");
+	}
+
+	// Single Discount with $1 value of Bill
+
+	@Test
+	public void testEmployeeDiscount_WithGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEmployeeDiscount_WithNonGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEmployeeDiscount_WithBoth$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPatronDiscount_WithGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPatronDiscount_WithNonGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPatronDiscount_WithBoth$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAffiliationDiscount_WithGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAffiliationDiscount_WithNonGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAffiliationDiscount_WithBoth$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	// Single Discount with Cash Back with $1 value of Bill
+
+	@Test
+	public void testEmployeeDiscount_And_CashBack_WithGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEmployeeDiscount_And_CashBack_WithNonGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEmployeeDiscount_And_CashBack_WithBoth$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPatronDiscount_And_CashBack_WithGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPatronDiscount_And_CashBack_WithNonGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPatronDiscount_And_CashBack_WithBoth$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAffiliationDiscount_And_CashBack_WithGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAffiliationDiscount_And_CashBack_WithNonGroceriesOnly$1Bll() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAffiliationDiscount_And_CashBack_WithBoth$1Bll() {
 		fail("Not yet implemented");
 	}
 

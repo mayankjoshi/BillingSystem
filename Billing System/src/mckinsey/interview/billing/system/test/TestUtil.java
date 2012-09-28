@@ -280,6 +280,70 @@ public final class TestUtil {
 		return bill;
 	}
 
+
+
+	public static Bill createGroceryBillOf$1() {
+		List<LineItem> itemList = new ArrayList<LineItem>();
+
+		LineItem item = new LineItem();
+		item.setItemCategory(new Grocery());
+		item.setQuantity(1);
+		item.setRate(1);
+		item.setSku("Cabbage");
+		itemList.add(item);
+
+		Bill bill = new Bill();
+		bill.setLineItem(itemList);
+
+		bill.setLineItem(itemList);
+
+		bill.setGrossAmount(1);
+
+		return bill;
+	}
+
+	public static Bill createNonGroceryOnlyBillOf$1() {
+		List<LineItem> itemList = new ArrayList<LineItem>();
+
+		LineItem item = new LineItem();
+		item.setItemCategory(new NonGrocery());
+		item.setQuantity(1);
+		item.setRate(1);
+		item.setSku("FloorMat");
+		itemList.add(item);
+		Bill bill = new Bill();
+		bill.setLineItem(itemList);
+		bill.setGrossAmount(1);
+		return bill;
+	}
+
+	public static Bill createBothGroceryAndNonGroceryBillOf$1() {
+		List<LineItem> itemList = new ArrayList<LineItem>();
+
+		LineItem item = new LineItem();
+		item.setItemCategory(new Grocery());
+		item.setQuantity(1);
+		item.setRate(1);
+		item.setSku("Cabbage");
+		itemList.add(item);
+
+		LineItem item2 = new LineItem();
+		item2.setItemCategory(new NonGrocery());
+		item2.setQuantity(1);
+		item2.setRate(1);
+		item2.setSku("Ginger");
+		itemList.add(item2);
+
+		Bill bill = new Bill();
+		bill.setLineItem(itemList);
+
+		bill.setGrossAmount(2);
+
+		return bill;
+	}
+
+
+
 	public static Bill createNegativeValueBill() {
 		Bill bill = createGroceryOnlyBill();
 		bill.setGrossAmount(-1);
