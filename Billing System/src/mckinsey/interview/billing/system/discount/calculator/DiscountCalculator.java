@@ -9,30 +9,56 @@ import mckinsey.interview.billing.system.category.Grocery;
 import mckinsey.interview.billing.system.category.ICategory;
 import mckinsey.interview.billing.system.discount.IDiscount;
 
+/**
+ * This class calculates the Discount considering all the possible rules sets.
+ * 
+ * @author mayjoshi
+ * 
+ */
 public final class DiscountCalculator {
-
+	/**
+	 * Making sure that the Class is Singleton
+	 */
 	private static DiscountCalculator calculator = new DiscountCalculator();
 
 	private DiscountCalculator() {
 
 	}
 
-	public DiscountCalculator getInstance() {
+	public static DiscountCalculator getInstance() {
 		return calculator;
 	}
 
+	/**
+	 * This method will calculate the Net Amount after considering all the
+	 * discounts for both percentage as well as cashback. It takes bill as an
+	 * argument and then calculates the discount amount.
+	 * 
+	 * @param bill
+	 * @return
+	 */
 	public int getNetAmount(final Bill bill) {
-
-		// Get Gross Amount
+		if (bill == null) {
+			throw new IllegalArgumentException("Bill can not be null");
+		}
 		int grossAmount = bill.getGrossAmount();
-		// Get Grocery Amount as we will not apply discount on Groceries.
 		int groceryAmount = getGroceryAmount(bill);
 		// Amount on which discount to be applied
 		int discountOn = (grossAmount - groceryAmount);
-		// Get best Applicable Discount. This is in percentage.
+		if (discountOn == 0) {
+			// This means that bill only has groceries and they are not
+			// subject to discount, but we still need to apply the cashback
+			int cashBackDiscount = getCashBackDiscount(bill);
+			// Now deduct cashBack
+			int cashBackAmount = (grossAmount / 100)
+					* cashBackDiscount;
+			int netPayable = (grossAmount - cashBackAmount);
+			bill.setNetAmount(netPayable);
+			return netPayable;
+		}
 		int bestApplicableDiscount = getBestApplicableDiscount(bill);
 		// Now get discountAmount
-		int discountedAmount = (bestApplicableDiscount / 100) * discountOn;
+		int discountedAmount = ((bestApplicableDiscount * discountOn) / 100);
 		// Now get deduct the discountedAmount
 		int amountAfterApplyingDiscount = (discountOn - discountedAmount);
 		// Now get and apply CashBack

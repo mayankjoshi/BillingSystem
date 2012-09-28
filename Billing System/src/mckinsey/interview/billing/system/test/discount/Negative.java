@@ -36,4 +36,23 @@ public class Negative {
 		fail("Not yet implemented");
 	}
 
+	@Test
+	public void testGetNetAmount_With_NullBill() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCashBackDiscount_With_NullBill() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetBestApplicableDiscount_With_NullBill() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetGroceryAmount_With_NullBill() {
+		fail("Not yet implemented");
+	}
 }
