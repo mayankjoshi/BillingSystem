@@ -1,5 +1,11 @@
 package mckinsey.interview.billing.system.discount;
 
+/**
+ * Affiliation Discount. Total Discount og 10%
+ * 
+ * @author mayjoshi
+ * 
+ */
 public class AffiliationDiscount implements IDiscount {
 
 	@Override
@@ -13,7 +19,5 @@ public class AffiliationDiscount implements IDiscount {
 
 		return 10;
 	}
-
-	
 
 }

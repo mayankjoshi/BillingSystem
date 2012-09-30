@@ -1,4 +1,10 @@
+
 package mckinsey.interview.billing.system.bill;
+
+
+/** 
+ * The Main Bill POJO that holds the bill information
+ */
 
 import java.util.List;
 

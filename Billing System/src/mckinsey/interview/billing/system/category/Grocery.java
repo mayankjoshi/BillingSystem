@@ -1,5 +1,11 @@
 package mckinsey.interview.billing.system.category;
 
+/**
+ * Category Class for Grocery
+ * 
+ * @author mayjoshi
+ * 
+ */
 public class Grocery implements ICategory {
 
 	private String groceryName = "GROCERY";
