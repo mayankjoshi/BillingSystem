@@ -1,4 +1,4 @@
 BillingSystem
 =============
 
-Mackinsey Interview Billing System
+Interview Billing System
