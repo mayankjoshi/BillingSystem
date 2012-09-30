@@ -1069,236 +1069,880 @@ public class Positive {
 
 	@Test
 	public void testAffiliatedDiscount_And_CashBack_LessThan100_WithOnlyGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillLessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 90", netAmount == 90);
 	}
 
 	@Test
 	public void testAffiliatedDiscount_And_CashBack_LessThan100_WithOnlyNonGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 81", netAmount == 81);
 	}
 
 	@Test
 	public void testAffiliatedDiscount_And_CashBack_LessThan100_WithBoth() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 28", netAmount == 28);
 	}
 
 	@Test
 	public void testPatronDiscount_And_CashBack_LessThan100_WithOnlyGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillLessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 90", netAmount == 90);
 	}
 
 	@Test
 	public void testPatronDiscount_And_CashBack_LessThan100_WithOnlyNonGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 86", netAmount == 86);
 	}
 
 	@Test
 	public void testPatronDiscount_And_CashBack_LessThan100_WithBoth() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 38", netAmount == 38);
 	}
 
 	// --- Double Discount Types with CashBack Less than 100------------//
 	@Test
 	public void testPatron_And_Employee_Discount_And_CashBack_LessThan100_WithGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillLessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 90", netAmount == 90);
 	}
 
 	@Test
 	public void testPatron_And_Employee_Discount_And_CashBack_LessThan100_WithNonGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 63", netAmount == 63);
 	}
 
 	@Test
 	public void testPatron_And_Employee_Discount_And_CashBack_LessThan100_WithBoth() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 28", netAmount == 28);
 	}
 
 	@Test
 	public void testPatron_And_Affiliated_Discount_And_CashBack_LessThan100_WithGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillLessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 90", netAmount == 90);
 	}
 
 	@Test
 	public void testPatron_And_Affiliated_Discount_And_CashBack_LessThan100_WithNonGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 81", netAmount == 81);
 	}
 
 	@Test
 	public void testPatron_And_Affiliated_Discount_And_CashBack_LessThan100_WithBoth() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 36", netAmount == 36);
 	}
 
 	@Test
 	public void testEmployee_And_Affiliated_Discount_And_CashBack_LessThan100_WithGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillLessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 90", netAmount == 90);
 	}
 
 	@Test
 	public void testEmployee_And_Affiliated_Discount_And_CashBack_LessThan100_WithNonGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 63", netAmount == 63);
 	}
 
 	@Test
 	public void testEmployee_And_Affiliated_Discount_And_CashBack_LessThan100_WithBoth() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 28", netAmount == 28);
 	}
 
 	// ------ Triple Discount Types with CashBack Less Than 100 --------------//
 
 	@Test
 	public void testEmployee_Patron_Affiliated_Discount_And_CashBack_LessThan100_WithGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillLessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 90", netAmount == 90);
 	}
 
 	@Test
 	public void testEmployee_Patron_Affiliated_Discount_And_CashBack_LessThan100_WithNonGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 63", netAmount == 63);
 	}
 
 	@Test
 	public void testEmployee_Patron_Affiliated_Discount_And_CashBack_LessThan100_WithBoth() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 28", netAmount == 28);
 	}
 
 	@Test
 	public void testThreeCashBack_LessThan100_Discount_WithGrocery() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillLessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		CashBack cashBack2 = new CashBack();
+		discounts.add(cashBack2);
+
+		CashBack cashBack3 = new CashBack();
+		discounts.add(cashBack3);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 90", netAmount == 90);
 	}
 
 	@Test
 	public void testThreeCashBack_LessThan100_Discount_WithNonGroceries() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		CashBack cashBack2 = new CashBack();
+		discounts.add(cashBack2);
+
+		CashBack cashBack3 = new CashBack();
+		discounts.add(cashBack3);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 90", netAmount == 90);
 	}
 
 	@Test
 	public void testThreeCashBack_LessThan100_Discount_WithBoth() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBilllessThan100();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		CashBack cashBack1 = new CashBack();
+		discounts.add(cashBack1);
+
+		CashBack cashBack2 = new CashBack();
+		discounts.add(cashBack2);
+
+		CashBack cashBack3 = new CashBack();
+		discounts.add(cashBack3);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 40", netAmount == 40);
 	}
 
 	// Single Discount with $1 value of Bill
 
 	@Test
 	public void testEmployeeDiscount_WithGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
+
 	}
 
 	@Test
 	public void testEmployeeDiscount_WithNonGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testEmployeeDiscount_WithBoth$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testPatronDiscount_WithGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscountt = new PatronDiscount();
+		discounts.add(patronDiscountt);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testPatronDiscount_WithNonGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscountt = new PatronDiscount();
+		discounts.add(patronDiscountt);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testPatronDiscount_WithBoth$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscountt = new PatronDiscount();
+		discounts.add(patronDiscountt);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testAffiliationDiscount_WithGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testAffiliationDiscount_WithNonGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testAffiliationDiscount_WithBoth$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	// Single Discount with Cash Back with $1 value of Bill
 
 	@Test
 	public void testEmployeeDiscount_And_CashBack_WithGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testEmployeeDiscount_And_CashBack_WithNonGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testEmployeeDiscount_And_CashBack_WithBoth$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testPatronDiscount_And_CashBack_WithGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testPatronDiscount_And_CashBack_WithNonGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testPatronDiscount_And_CashBack_WithBoth$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testAffiliationDiscount_And_CashBack_WithGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testAffiliationDiscount_And_CashBack_WithNonGroceriesOnly$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil.createNonGroceryOnlyBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	@Test
 	public void testAffiliationDiscount_And_CashBack_WithBoth$1Bll() {
-		fail("Not yet implemented");
+		Bill groceryOnlyBill = TestUtil
+				.createBothGroceryAndNonGroceryBillOf$1();
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		AffiliationDiscount affiliationDiscount = new AffiliationDiscount();
+		discounts.add(affiliationDiscount);
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		groceryOnlyBill.setDiscounts(discounts);
+
+		int netAmount = DiscountCalculator.getInstance().getNetAmount(
+				groceryOnlyBill);
+
+		assertTrue("The NetValue should be 1", netAmount == 1);
 	}
 
 	// -------- API testing------------
 
 	@Test
 	public void testGetGroceryAmount_With_Only_GroceryBill() {
-		fail("Not yet implemented");
+		Bill bill = TestUtil.createGroceryOnlyBill();
+		int groceryAmount = DiscountCalculator.getInstance().getGroceryAmount(
+				bill);
+
+		assertTrue("The NetValue should be 885", groceryAmount == 885);
 	}
 
 	@Test
 	public void testGetGroceryAmount_With_Only_Non_GroceryBill() {
-		fail("Not yet implemented");
+		Bill bill = TestUtil.createNonGroceryOnlyBill();
+		int groceryAmount = DiscountCalculator.getInstance().getGroceryAmount(
+				bill);
+
+		assertTrue("The NetValue should be 0", groceryAmount == 0);
 	}
 
 	@Test
 	public void testGetGroceryAmount_With_BothBill() {
-		fail("Not yet implemented");
+		Bill bill = TestUtil.createBothGroceryAndNonGroceryBill();
+		int groceryAmount = DiscountCalculator.getInstance().getGroceryAmount(
+				bill);
+
+		assertTrue("The NetValue should be 885", groceryAmount == 885);
 	}
 
 	@Test
-	public void testGetBestApplicableDiscount_With_Only_Grocery_Bill() {
-		fail("Not yet implemented");
+	public void testGetBestApplicableDiscount_With_No_Discount() {
+		Bill bill = TestUtil.createGroceryOnlyBill();
+		int bestApplicableDiscount = DiscountCalculator.getInstance()
+				.getBestApplicableDiscount(bill);
+		assertTrue("The NetValue should be 0", bestApplicableDiscount == 0);
 	}
 
 	@Test
-	public void testGetBestApplicableDiscount_With_Only_Non_Grocery_Bill() {
-		fail("Not yet implemented");
+	public void testGetBestApplicableDiscount_With_Employee_Discount() {
+		Bill bill = TestUtil.createGroceryOnlyBill();
+
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		bill.setDiscounts(discounts);
+
+		int bestApplicableDiscount = DiscountCalculator.getInstance()
+				.getBestApplicableDiscount(bill);
+
+		assertTrue("The NetValue should be 30", bestApplicableDiscount == 30);
 	}
 
 	@Test
-	public void testGetBestApplicableDiscount_With_Both_Bill() {
-		fail("Not yet implemented");
+	public void testGetBestApplicableDiscount_With_Employee_And_Patron_Discount() {
+		Bill bill = TestUtil.createGroceryOnlyBill();
+
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		EmployeeDiscount employeeDiscount = new EmployeeDiscount();
+		discounts.add(employeeDiscount);
+
+		PatronDiscount patronDiscount = new PatronDiscount();
+		discounts.add(patronDiscount);
+
+		bill.setDiscounts(discounts);
+
+		int bestApplicableDiscount = DiscountCalculator.getInstance()
+				.getBestApplicableDiscount(bill);
+
+		assertTrue("The NetValue should be 30", bestApplicableDiscount == 30);
+	}
+
+	@Test
+	public void testGetcashBack() {
+		Bill bill = TestUtil.createGroceryOnlyBill();
+
+		List<IDiscount> discounts = new ArrayList<IDiscount>();
+
+		CashBack cashBack = new CashBack();
+		discounts.add(cashBack);
+
+		bill.setDiscounts(discounts);
+
+		int cashBackDiscount = DiscountCalculator.getInstance().getCashBackDiscount(bill);
+		
+		assertTrue("The NetValue should be 30", cashBackDiscount == 5);
 	}
 
 }

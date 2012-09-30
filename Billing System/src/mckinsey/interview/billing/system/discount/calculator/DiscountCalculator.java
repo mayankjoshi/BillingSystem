@@ -39,7 +39,7 @@ public final class DiscountCalculator {
 	 */
 	public int getNetAmount(final Bill bill) {
 		if (bill == null) {
-			throw new IllegalArgumentException("Bill can not be null");
+			return 0;
 		}
 		int grossAmount = bill.getGrossAmount();
 		int groceryAmount = getGroceryAmount(bill);
@@ -50,8 +50,7 @@ public final class DiscountCalculator {
 			// subject to discount, but we still need to apply the cashback
 			int cashBackDiscount = getCashBackDiscount(bill);
 			// Now deduct cashBack
-			int cashBackAmount = (grossAmount / 100)
-					* cashBackDiscount;
+			int cashBackAmount = (grossAmount / 100) * cashBackDiscount;
 			int netPayable = (grossAmount - cashBackAmount);
 			bill.setNetAmount(netPayable);
 			return netPayable;
@@ -73,7 +72,13 @@ public final class DiscountCalculator {
 
 	public int getCashBackDiscount(final Bill bill) {
 		int cashBack = 0;
+		if (bill == null) {
+			return cashBack;
+		}
 		List<IDiscount> discounts = bill.getDiscounts();
+		if (discounts == null) {
+			return cashBack;
+		}
 		for (Iterator<IDiscount> iterator = discounts.iterator(); iterator
 				.hasNext();) {
 			IDiscount iDiscount = iterator.next();
@@ -98,8 +103,14 @@ public final class DiscountCalculator {
 	 * @return
 	 */
 	public int getBestApplicableDiscount(final Bill bill) {
+		if (bill == null) {
+			return 0;
+		}
 		List<IDiscount> discounts = bill.getDiscounts();
 		int currentDiscount = 0;
+		if (discounts == null) {
+			return currentDiscount;
+		}
 		for (Iterator<IDiscount> iterator = discounts.iterator(); iterator
 				.hasNext();) {
 			IDiscount iDiscount = iterator.next();
@@ -115,8 +126,14 @@ public final class DiscountCalculator {
 	}
 
 	public int getGroceryAmount(final Bill bill) {
-		List<LineItem> lineItemList = bill.getLineItem();
 		int groceryAmount = 0;
+		if (bill == null) {
+			return groceryAmount;
+		}
+		List<LineItem> lineItemList = bill.getLineItem();
+		if (lineItemList == null) {
+			return groceryAmount;
+		}
 		for (Iterator<LineItem> iterator = lineItemList.iterator(); iterator
 				.hasNext();) {
 			LineItem lineItem = iterator.next();

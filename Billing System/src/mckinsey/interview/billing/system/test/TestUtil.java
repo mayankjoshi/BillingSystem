@@ -280,8 +280,6 @@ public final class TestUtil {
 		return bill;
 	}
 
-
-
 	public static Bill createGroceryBillOf$1() {
 		List<LineItem> itemList = new ArrayList<LineItem>();
 
@@ -342,17 +340,15 @@ public final class TestUtil {
 		return bill;
 	}
 
-
-
 	public static Bill createNegativeValueBill() {
-		Bill bill = createGroceryOnlyBill();
+		Bill bill = new Bill();
 		bill.setGrossAmount(-1);
 		return bill;
 
 	}
 
 	public static Bill createZeroValueBill() {
-		Bill bill = createGroceryOnlyBill();
+		Bill bill = new Bill();
 		bill.setGrossAmount(0);
 		return bill;
 	}
